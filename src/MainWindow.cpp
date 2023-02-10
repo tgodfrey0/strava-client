@@ -1,9 +1,21 @@
 #include "MainWindow.hpp"
+#include <gtkmm/box.h>
+#include <gtkmm/image.h>
+#include <gtkmm/label.h>
 #include <iostream>
 
 MainWindow::MainWindow()
-: m_button("Hello World")   // creates a new button with label "Hello World".
 {
+  auto pmap = Gtk::make_managed<Gtk::Image>("../res/svgs/sharp-regular/repeat.svg");
+  auto label = Gtk::make_managed<Gtk::Label>("Cool button");
+  label->set_expand(true);
+
+  auto hbox = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL, 5);
+  hbox->append(*pmap);
+  hbox->append(*label);
+
+  m_button.set_child(*hbox);
+
   // Sets the margin around the button.
   m_button.set_margin(10);
 
@@ -22,5 +34,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_button_clicked()
 {
-  std::cout << "Hello World" << std::endl;
+  std::cout << "Clicked" << std::endl;
 }

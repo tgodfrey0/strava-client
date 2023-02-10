@@ -8,7 +8,7 @@ class MainWindow : public Gtk::Window
 
 public:
   MainWindow();
-  ~MainWindow() override;
+  virtual ~MainWindow();
 
 protected:
   //Signal handlers:
