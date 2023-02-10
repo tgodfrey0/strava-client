@@ -1,7 +1,10 @@
 #pragma once
 
-#include <gtkmm/button.h>
+#include "Activities.hpp"
+
+#include <gtkmm/togglebutton.h>
 #include <gtkmm/window.h>
+#include <gtkmm/listbox.h>
 
 class MainWindow : public Gtk::Window
 {
@@ -9,11 +12,13 @@ class MainWindow : public Gtk::Window
 public:
   MainWindow();
   virtual ~MainWindow();
+  void add_to_list(activities::Activity);
 
 protected:
   //Signal handlers:
   void on_button_clicked();
 
   //Member widgets:
-  Gtk::Button m_button;
+  Gtk::Box m_activity_list;
+  Gtk::ToggleButton m_button;
 };
