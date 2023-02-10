@@ -2,7 +2,7 @@
 
 #include "Activities.hpp"
 
-#include <gtkmm/togglebutton.h>
+#include <gtkmm/button.h>
 #include <gtkmm/window.h>
 #include <gtkmm/listbox.h>
 
@@ -20,5 +20,5 @@ protected:
 
   //Member widgets:
   Gtk::Box m_activity_list;
-  Gtk::ToggleButton m_button;
+  Gtk::Button m_button;
 };
