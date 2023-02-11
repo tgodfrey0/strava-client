@@ -78,3 +78,5 @@ compile_commands.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/meson,c++,visualstudiocode
+
+.tokens
