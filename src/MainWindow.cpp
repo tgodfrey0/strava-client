@@ -9,8 +9,17 @@
 
 #include <boost/log/trivial.hpp>
 
+//Gtk::Box MainWindow::m_activity_list = Gtk::Box(Gtk::Orientation::VERTICAL);
+
 MainWindow::MainWindow()
 {
+  set_default_size(600, 1000);
+  set_resizable(false);
+
+  m_button = Gtk::Button();
+
+  m_activity_list = Gtk::Box(Gtk::Orientation::VERTICAL);
+
 
   BOOST_LOG_TRIVIAL(trace) << "Building MainWindow";
 
@@ -40,6 +49,7 @@ MainWindow::MainWindow()
   // view->set_child(m_activity_list);
 
   sw->set_child(m_activity_list);
+  sw->set_size_request(400, 800);
 
   auto outer = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::VERTICAL, 5);
   outer->append(m_button);
@@ -55,20 +65,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_button_clicked()
 {
-  BOOST_LOG_TRIVIAL(trace) << "Clicked";
-  add_to_list(activities::make_activity(
+  add_to_list(make_activity(
     "auth",
     "1/1/1 00:00:00",
-    activities::ActivityType::RUN,
-    1.23
+    ActivityType::RUN,
+    1.23f
   ));
 }
 
-void MainWindow::add_to_list(activities::Activity a) {
-  BOOST_LOG_TRIVIAL(trace) << "Adding activity " << activities::print_activity(a) << " to the view";
+void MainWindow::add_to_list(Activity a) {
+  BOOST_LOG_TRIVIAL(trace) << "Adding activity " << print_activity(a) << " to the view";
 
   try {
-    auto activity_box = activities::make_widget(a);
+    auto activity_box = make_widget(a);
     m_activity_list.append(*activity_box);
   } catch (std::exception e) {
     BOOST_LOG_TRIVIAL(error) << "Error when adding activity - " << e.what();

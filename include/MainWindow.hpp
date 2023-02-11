@@ -12,7 +12,7 @@ class MainWindow : public Gtk::Window
 public:
   MainWindow();
   virtual ~MainWindow();
-  void add_to_list(activities::Activity);
+  void add_to_list(Activity);
 
 protected:
   //Signal handlers:

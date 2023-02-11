@@ -3,7 +3,6 @@
 #include <gtkmm/box.h>
 #include <gtkmm/label.h>
 
-using namespace activities;
 
 Activity make_activity(std::string author, std::string date_time, ActivityType sport, float distance){
   return Activity {
