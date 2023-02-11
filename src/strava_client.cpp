@@ -7,8 +7,12 @@
 #include <boost/log/core.hpp>
 #include <boost/log/expressions.hpp>
 
+#include <curl/curl.h>
+
 // This will change
 void init() {
+  curl_global_init(CURL_GLOBAL_ALL);
+
   boost::log::core::get()->set_filter (
     boost::log::trivial::severity >= boost::log::trivial::trace
   );
@@ -16,7 +20,7 @@ void init() {
 
 int main(int argc, char* argv[])
 {
-  init(); // Sets the log filter level
+  init(); // Sets the log filter level & initialises curl
 
   auto app = Gtk::Application::create("com.tgodfrey.strava");
 

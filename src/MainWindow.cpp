@@ -75,7 +75,7 @@ void MainWindow::on_button_clicked()
     activities::ActivityType::CYCLE,
     1.23f
   ));
-  network::get_activities(23);
+  network::get_activities();
 }
 
 void MainWindow::add_to_list(activities::Activity a) {

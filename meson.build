@@ -5,14 +5,14 @@ project('strava-client', 'cpp',
 
 gtkmm_dep = dependency('gtkmm-4.0', version: '>= 4.6.0')
 boost_dep = dependency('boost', modules : ['log'])
-oatpp_dep = dependency('oatpp')
+curl_dep = dependency('libcurl')
 
 subdir('src')
 incs = include_directories('include')
 libs = include_directories('lib')
 
 exe = executable('strava_client', sources,
-  dependencies: [gtkmm_dep, boost_dep, oatpp_dep],
+  dependencies: [gtkmm_dep, boost_dep, curl_dep],
   include_directories : [incs, libs],
   win_subsystem: 'windows',
 )
