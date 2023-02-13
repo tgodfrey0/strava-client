@@ -31,7 +31,7 @@ MainWindow::MainWindow()
   auto sw = Gtk::make_managed<Gtk::ScrolledWindow>();
 
   auto pmap = Gtk::make_managed<Gtk::Image>("../res/svgs/sharp-regular/repeat.svg");
-  auto label = Gtk::make_managed<Gtk::Label>("Cool button");
+  auto label = Gtk::make_managed<Gtk::Label>("Button");
   label->set_expand(true);
 
   auto hbox = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL, 5);
