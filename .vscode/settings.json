@@ -68,5 +68,6 @@
     "chrono": "cpp",
     "forward_list": "cpp",
     "unordered_set": "cpp"
-  }
+  },
+  "mesonbuild.configureOnOpen": true
 }

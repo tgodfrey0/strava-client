@@ -7,12 +7,12 @@
 #include <fstream>
 
 //CURL* network::handle = curl_easy_init();
-static network::TokenStore network::tks = network::authenticate();
+network::TokenStore network::tks = network::authenticate();
 
 std::vector<activities::Activity> network::get_activities(){
   std::string requestString;
   requestString.append("https://www.strava.com/api/v3/athlete/activities?authorization_token=");
-  requestString.append(tks->auth);
+  requestString.append(tks.auth);
 
   std::vector<activities::Activity> as;
 
